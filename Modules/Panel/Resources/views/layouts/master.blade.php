@@ -1,5 +1,5 @@
-@extends('layouts.app')
+@extends('core::layouts.master')
 
 @section('branding')
-	{{ config('app.name', 'Laravel') }} # {{ config('panel.name') }}
+	{{ config('core.name', 'Laravel') }} # {{ config('panel.name') }}
 @stop

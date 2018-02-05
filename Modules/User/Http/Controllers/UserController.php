@@ -1,28 +1,18 @@
 <?php
 
-namespace Modules\Panel\Http\Controllers;
+namespace Modules\User\Http\Controllers;
 
 use Modules\Core\Http\Controllers\CoreController;
 
-class PanelController extends CoreController
+class UserController extends CoreController
 {
-    /**
-     * Create a new controller instance.
-     *
-     * @return void
-     */
-    public function __construct()
-    {
-        $this->middleware('auth');
-    }
-    
     /**
      * Display a listing of the resource.
      * @return Response
      */
     public function index()
     {
-        return view('panel::index');
+        return view('user::index');
     }
 
     /**
@@ -31,7 +21,7 @@ class PanelController extends CoreController
      */
     public function create()
     {
-        return view('panel::create');
+        return view('user::create');
     }
 
     /**
@@ -49,7 +39,7 @@ class PanelController extends CoreController
      */
     public function show()
     {
-        return view('panel::show');
+        return view('user::show');
     }
 
     /**
@@ -58,7 +48,7 @@ class PanelController extends CoreController
      */
     public function edit()
     {
-        return view('panel::edit');
+        return view('user::edit');
     }
 
     /**
