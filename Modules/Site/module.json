@@ -1,12 +1,12 @@
 {
-    "name": "User",
-    "alias": "user",
+    "name": "Site",
+    "alias": "site",
     "description": "",
     "keywords": [],
     "active": 1,
-    "order": 2,
+    "order": 4,
     "providers": [
-        "Modules\\User\\Providers\\UserServiceProvider"
+        "Modules\\Site\\Providers\\SiteServiceProvider"
     ],
     "aliases": {},
     "files": [
