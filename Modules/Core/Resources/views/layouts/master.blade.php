@@ -16,7 +16,7 @@
 <body>
     <div id="app">
 
-        @include('core::layouts.nav')
+        @yield('nav')
 
         @yield('content')
         

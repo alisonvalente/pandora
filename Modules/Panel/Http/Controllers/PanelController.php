@@ -4,7 +4,6 @@ namespace Modules\Panel\Http\Controllers;
 
 use Modules\Core\Http\Controllers\CoreController;
 use Modules\Site\Entities\SiteRepository;
-use Modules\Site\Entities\Site;
 use Illuminate\Support\Facades\Auth;
 
 class PanelController extends CoreController

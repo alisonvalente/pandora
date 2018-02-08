@@ -1,9 +1,13 @@
 @extends('site::layouts.master')
 
 @section('content')
-    <h1>Hello World</h1>
+	<div class="container">
+        <div class="row text-center">
+		    <h1>Hello World</h1>
 
-    <p>
-        This view is loaded from module: {!! config('site.name') !!}
-    </p>
+		    <p>
+		        This view is loaded from module: {!! config('site.name') !!}
+		    </p>
+		</div>
+	</div>
 @stop

@@ -9,7 +9,7 @@ Manual de instalação para ambiente de desenvolvimento
 Clone o projeto no root do servidor web
 
 ``` bash
-git clone https://github.com/alisonvalente/Teste.git
+git clone https://github.com/alisonvalente/Pandora.git
 ```
 
 Instalar dependências
@@ -33,9 +33,10 @@ DB_USERNAME=root
 DB_PASSWORD=
 ```
 
-Em seguida, rodar:
+Rodar as migrations e popular o banco:
 ``` bash
 php artisan migrate
+php artisan db:seed
 ```
 
 Criar chave de aplicação
