@@ -15,6 +15,14 @@
                         @endif
 
                         You are logged in!
+
+                        <br><br>
+
+                        {{$site->name}}
+
+                        <br><br>
+                        
+                        {{$site->description}}
                     </div>
                 </div>
             </div>

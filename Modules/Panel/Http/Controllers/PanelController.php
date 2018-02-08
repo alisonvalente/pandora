@@ -3,6 +3,9 @@
 namespace Modules\Panel\Http\Controllers;
 
 use Modules\Core\Http\Controllers\CoreController;
+use Modules\Site\Entities\SiteRepository;
+use Modules\Site\Entities\Site;
+use Illuminate\Support\Facades\Auth;
 
 class PanelController extends CoreController
 {
@@ -20,9 +23,11 @@ class PanelController extends CoreController
      * Display a listing of the resource.
      * @return Response
      */
-    public function index()
+    public function index(SiteRepository $repository)
     {
-        return view('panel::index');
+        $site = $repository->getByUserId(Auth::id());
+
+        return view('panel::index', ['site' => $site]);
     }
 
     /**

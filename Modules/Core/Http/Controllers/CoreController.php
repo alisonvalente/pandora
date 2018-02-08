@@ -12,13 +12,4 @@ use Illuminate\Foundation\Auth\Access\AuthorizesRequests;
 class CoreController extends BaseController
 {
     use AuthorizesRequests, DispatchesJobs, ValidatesRequests;
-
-    /**
-     * Display a listing of the resource.
-     * @return Response
-     */
-    public function index()
-    {
-        return view('core::index');
-    }
 }
