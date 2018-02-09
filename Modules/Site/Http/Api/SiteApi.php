@@ -15,7 +15,7 @@ class SiteApi extends Controller
      */
     public function get(SiteRepository $repository)
     {
-        $userId = 1;
+        $userId = 1;//Auth::id()
 
         $site = $repository->getByUserId($userId);
 
@@ -31,6 +31,8 @@ class SiteApi extends Controller
     {
         $data = json_decode($request->getContent(), true);
 
+        #TODO verifica auth
+        
         $model = $repository->findByID($id, false);
 
         $bool = false;
