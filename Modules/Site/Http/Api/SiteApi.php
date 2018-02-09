@@ -10,39 +10,64 @@ use Modules\Site\Entities\SiteRepository;
 class SiteApi extends Controller
 {
     /**
-     * @return Response
+     * @param  $idUser
+     * @return json
      */
-    public function get($idUser, SiteRepository $repository)
+    public function get(SiteRepository $repository)
     {
-        $site = $repository->getByUserId($idUser);
+        $userId = 1;
+
+        $site = $repository->getByUserId($userId);
 
         return $site->toJson();
     }
 
     /**
+     * @param  int $id  
      * @param  Request $request
-     * @return Response
-     */
-    public function post(Request $request, SiteRepository $repository)
-    {
-
-    }
-
-    /**
-     * @param  Request $request
-     * @return Response
+     * @return json
      */
     public function put($id, Request $request, SiteRepository $repository)
     {
-        $data = sizeof($_POST) > 0 ? $_POST : json_decode($request->getContent(), true);
+        $data = json_decode($request->getContent(), true);
 
-        return $repository->where('id', $id)->update($data);
+        $model = $repository->findByID($id, false);
+
+        $bool = false;
+        if ($model) {
+            $bool = $repository->update($model, $data);
+        }
+
+        return $this->boolToJson($bool);
     }
 
     /**
-     * @return Response
+     * @param  Request $request
+     * @param  SiteRepository $repository
+     * @return json
      */
-    public function delete()
+    // public function post(Request $request, SiteRepository $repository)
+    // {
+    //     $userId = 1;
+
+    //     $data = json_decode($request->getContent(), true);
+    //     $data['user_id'] = $userId;
+
+    //     $model = $repository->create($data);
+
+    //     return $this->boolToJson($model ?: false);
+    // }
+
+    /**
+     * @return Response
+     * @return json
+     */
+    // public function delete()
+    // {
+    // }
+
+    public function boolToJson($bool = false)
     {
+        return json_encode(["status" => ($bool)?'ok':'erro']);
     }
 }

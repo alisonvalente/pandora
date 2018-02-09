@@ -7,8 +7,8 @@ Route::group(['middleware' => 'web', 'prefix' => 'site', 'namespace' => 'Modules
 
 Route::group(['middleware' => 'api', 'prefix' => 'api', 'namespace' => 'Modules\Site\Http\Api'], function()
 {
-	Route::get('site/{id}', 'SiteApi@get');
-	Route::post('site', 'SiteApi@post');
+	Route::get('site', 'SiteApi@get');
+	//Route::post('site', 'SiteApi@post');
 	Route::put('site/{id}', 'SiteApi@put');
-	Route::delete('site/{id}', 'SiteApi@delete');
+	//Route::delete('site/{id}', 'SiteApi@delete');
 });
