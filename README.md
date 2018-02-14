@@ -12,10 +12,18 @@ Clone o projeto no root do servidor web
 git clone https://github.com/alisonvalente/Pandora.git
 ```
 
-Instalar dependências
+Instalar dependências de pacotes PHP
 
 ``` bash
 composer install
+```
+
+Dependência de front-end
+``` bash
+apt-get install nodejs
+apt-get install npm
+cd public
+npm install package.json
 ```
 
 ## Configuração
