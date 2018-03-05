@@ -7,15 +7,15 @@ var app = angular.module('pandora',[], function($interpolateProvider) {
 // Service
 app.factory('siteService',function($http) {
 	return {
-		get: function(){
+		get: function() {
 			return $http.get('/api/site');
 		},
-		put: function(data){
+		put: function(data) {
 			var id = data.id;
 			delete data.id;
 			return $http.put('/api/site/'+id, data);
 		},
-		delete: function(id){
+		delete: function(id) {
 			return $http.delete('/api/site/'+id)
 		}
 	}
@@ -23,24 +23,35 @@ app.factory('siteService',function($http) {
 
 // Controller
 app.controller('siteController', function($scope, siteService) {
-	$scope.list = function(){
+	$scope.list = function() {
 		siteService.get().then(function(response){
 			console.log(response.data);
 			$scope.site = response.data;
 		});
 	}
 
-	$scope.update = function(){
-		siteService.put($scope.site).then(function(response){
+	$scope.update = function() {
+		siteService.put($scope.site).then(function(response) {
 			$scope.list();
 		});
 	}
 
-	$scope.destroy = function(data){
+	$scope.destroy = function(data) {
 		if(confirm("Tem certeza que deseja excluir?")){
-			siteService.delete(data.id).then(function(response){
+			siteService.delete(data.id).then(function(response) {
 				$scope.list();
 			});
 		}
+	}
+
+	$scope.changeTheme = function(data) {
+		$scope.site.theme = data;
+	}
+
+	$scope.isTheme = function(data) {
+		if ($scope.site && $scope.site.theme == data) {
+			return true;
+		}
+		return false;
 	}
 });

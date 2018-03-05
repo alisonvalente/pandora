@@ -10,10 +10,11 @@
             border-radius: 10px;
             border: 3px solid white;
         }
-        .color1 {background-color: #FFBD33;}
-        .color2 {background-color: #33FFBD;}
-        .color3 {background-color: #FF5733;}
-        .color4 {background-color: #DBFF33;}
+        .theme1 {background-color: #FFBD33;}
+        .theme2 {background-color: #33FFBD;}
+        .theme3 {background-color: #FF5733;}
+        .theme4 {background-color: #DBFF33;}
+        .chosenTheme {border: 5px inset white;}
     </style>
 @stop
 
@@ -21,7 +22,7 @@
     <div class="container" ng-app="pandora" ng-controller="siteController">
         <div class="row" ng-init="list()">
             <div class="col-md-8 col-md-offset-2">
-                <div class="panel panel-default">
+                <div class="panel panel-default" ng-class="site.theme">
                     <div class="panel-heading"><% site.name %></div>
 
                     <div class="panel-body">
@@ -40,13 +41,13 @@
                             <input type="text" class="form-control" ng-model="site.description">
                         </div>
                         <div class="form-group">
-                            <label>Cor de fundo:</label>
+                            <label>Cor de fundo: <% site.theme %></label>
                             <div class="container">
                                 <div class="row">
-                                    <div class="col-md-1 square color1"></div>
-                                    <div class="col-md-1 square color2"></div>
-                                    <div class="col-md-1 square color3"></div>
-                                    <div class="col-md-1 square color4"></div>
+                                    <div ng-repeat="theme in ['theme1','theme2','theme3','theme4']" 
+                                        class="col-md-1 square <% theme %>" 
+                                        ng-class="{'chosenTheme': isTheme(theme)}" 
+                                        ng-click="changeTheme(theme)"></div>
                                 </div>
                             </div>
                         </div>

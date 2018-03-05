@@ -21,6 +21,7 @@ class SiteTableSeeder extends Seeder
             'id' => 1,
             'name' => 'Alison\'s Blog',
             'description' => 'A blog about games and stuff.',
+            'theme' => '',
             'user_id' => 1,
             'created_at' => now(),
             'updated_at' => now(),
