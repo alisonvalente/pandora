@@ -9,11 +9,13 @@
             width: 60px;
             border-radius: 10px;
             border: 3px solid white;
+            cursor: pointer;
         }
-        .theme1 {background-color: #FFBD33;}
+        .theme1 {background-color: #ffffff;}
         .theme2 {background-color: #33FFBD;}
         .theme3 {background-color: #FF5733;}
         .theme4 {background-color: #DBFF33;}
+        .theme5 {background-color: #FFBD33;}
         .chosenTheme {border: 5px inset white;}
     </style>
 @stop
@@ -44,7 +46,7 @@
                             <label>Cor de fundo: <% site.theme %></label>
                             <div class="container">
                                 <div class="row">
-                                    <div ng-repeat="theme in ['theme1','theme2','theme3','theme4']" 
+                                    <div ng-repeat="theme in ['theme1','theme2','theme3','theme4','theme5']" 
                                         class="col-md-1 square <% theme %>" 
                                         ng-class="{'chosenTheme': isTheme(theme)}" 
                                         ng-click="changeTheme(theme)"></div>
