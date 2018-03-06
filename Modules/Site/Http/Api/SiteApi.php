@@ -6,16 +6,22 @@ use Illuminate\Http\Request;
 use Illuminate\Http\Response;
 use Illuminate\Routing\Controller;
 use Modules\Site\Entities\SiteRepository;
+use Illuminate\Support\Facades\Auth;
 
 class SiteApi extends Controller
 {
+    public function __construct()
+    {
+        $this->middleware('auth');
+    }
+
     /**
      * @param  $idUser
      * @return json
      */
     public function get(SiteRepository $repository)
     {
-        $userId = 1;//Auth::id()
+        $userId = Auth::id();
 
         $site = $repository->getByUserId($userId);
 
@@ -31,7 +37,9 @@ class SiteApi extends Controller
     {
         $data = json_decode($request->getContent(), true);
 
-        #TODO verifica auth
+        if ($data['user_id'] !== Auth::id()) {
+            return $this->boolToJson(false);
+        }
         
         $model = $repository->findByID($id, false);
 
