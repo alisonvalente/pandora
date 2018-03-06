@@ -6,10 +6,14 @@ use Modules\Core\Tests\TestCase;
 
 class SiteApiTest extends TestCase
 {
+	public function setUp()
+	{
+		parent::setUp();
+		$this->loginWithFakeUser();
+	}
+
 	public function testMethodGet()
 	{
-		$this->loginWithFakeUser();
-
 		$this->get('api/site')
 			->assertStatus(200)
 			->assertJsonStructure([
